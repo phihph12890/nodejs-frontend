@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+
+        <style>
+            body {
+                margin: 0px auto;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Object Function</h1>
+
+        <div id="editor">
+            <p>Here goes the initial content of the editor.</p>
+        </div>
+        <button id="submit">submit</button>
+
+        <!-- <script src="index.js"></script> -->
+        <script>
+            let editor;
+
+            ClassicEditor.create(document.querySelector("#editor"))
+                .then((newEditor) => {
+                    // editor.model.document.on("change:data", () => {
+                    //   console.log(editor.getData());
+                    // });
+                    editor = newEditor;
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+            document.querySelector("#submit").addEventListener("click", () => {
+                const editorData = editor.getData();
+
+                // console.log(JSON.stringify(editorData));
+                const post = {
+                    content: editorData,
+                };
+                console.log(post);
+                // ...
+            });
+
+            
+        </script>
+    </body>
+</html>

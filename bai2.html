@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.tiny.cloud/1/la76yyzpi4abh83rxl38u8xjwfo0qki3b7fqqu57ic7qocxh/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    </head>
+    <body>
+        <form method="post" action="somepage">
+            <textarea id="myTextArea" class="mceEditor">I should buy a boat. </textarea>
+        </form>
+        
+        <button onclick="content()">Get content</button>
+
+        >
+        <script>
+            tinymce.init({
+                selector: "textarea",
+                plugin: "a_tinymce_plugin",
+                a_plugin_option: true,
+                a_configuration_option: 400,
+            });
+            // var myContent = tinymce.get("myTextarea").getContent();
+            function content() {
+                const a = tinyMCE.get("myTextArea").getContent();
+                console.log(a);
+            }
+        </script>
+    </body>
+</html>
